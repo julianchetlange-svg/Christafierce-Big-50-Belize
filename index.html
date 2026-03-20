@@ -349,7 +349,79 @@
       body { background: white; }
       .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     }
-    @media (max-width: 600px) {
+    
+.tab-help {
+  font-size: 14px;
+  color: var(--muted);
+  margin: -6px 0 22px;
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.overview-card, .mini-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.overview-card label, .mini-card label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.overview-card strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ocean);
+  margin-bottom: 8px;
+}
+.overview-card p, .mini-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.quick-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(26,107,114,0.08);
+  color: var(--ocean);
+  font-size: 13px;
+  font-weight: 500;
+}
+.quick-links a:hover {
+  background: rgba(26,107,114,0.14);
+}
+
+@media (max-width: 900px) {
+  .overview-grid,
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
       .hero { padding: 40px 24px 32px; }
       .accom-card { grid-template-columns: 1fr; }
       .accom-card .full { grid-column: 1; }
@@ -453,15 +525,58 @@ body {
 <nav class="tab-nav-wrap">
 <div class="tab-nav-inner">
 <div aria-label="Trip sections" class="tab-nav" role="tablist">
-<button aria-controls="tab-panel-0" aria-selected="true" class="tab-btn active" data-tab="0" id="tab-btn-0" role="tab">Accommodation</button><button aria-controls="tab-panel-1" aria-selected="false" class="tab-btn" data-tab="1" id="tab-btn-1" role="tab">Car Rentals</button><button aria-controls="tab-panel-2" aria-selected="false" class="tab-btn" data-tab="2" id="tab-btn-2" role="tab">Driving Directions</button><button aria-controls="tab-panel-3" aria-selected="false" class="tab-btn" data-tab="3" id="tab-btn-3" role="tab">Payment Tracking</button><button aria-controls="tab-panel-4" aria-selected="false" class="tab-btn" data-tab="4" id="tab-btn-4" role="tab">Flight Information</button><button aria-controls="tab-panel-5" aria-selected="false" class="tab-btn" data-tab="5" id="tab-btn-5" role="tab">Planned Events</button><button aria-controls="tab-panel-6" aria-selected="false" class="tab-btn" data-tab="6" id="tab-btn-6" role="tab">Photo Gallery</button>
+<button aria-controls="tab-panel-0" aria-selected="true" class="tab-btn active" data-tab="0" id="tab-btn-0" role="tab">Overview</button><button aria-controls="tab-panel-1" aria-selected="false" class="tab-btn" data-tab="1" id="tab-btn-1" role="tab">Accommodation</button><button aria-controls="tab-panel-2" aria-selected="false" class="tab-btn" data-tab="2" id="tab-btn-2" role="tab">Car Rentals</button><button aria-controls="tab-panel-3" aria-selected="false" class="tab-btn" data-tab="3" id="tab-btn-3" role="tab">Driving Directions</button><button aria-controls="tab-panel-4" aria-selected="false" class="tab-btn" data-tab="4" id="tab-btn-4" role="tab">Payment Tracking</button><button aria-controls="tab-panel-5" aria-selected="false" class="tab-btn" data-tab="5" id="tab-btn-5" role="tab">Flight Information</button><button aria-controls="tab-panel-6" aria-selected="false" class="tab-btn" data-tab="6" id="tab-btn-6" role="tab">Planned Events</button><button aria-controls="tab-panel-7" aria-selected="false" class="tab-btn" data-tab="7" id="tab-btn-7" role="tab">Photo Gallery</button>
 </div>
 </div>
 </nav>
+
 <div class="container tabbed-container"><section aria-labelledby="tab-btn-0" class="section tab-panel active" id="tab-panel-0" role="tabpanel">
+<div class="section-header">
+<span class="section-icon">☀️</span>
+<h2>Trip Overview</h2>
+<span class="count">Fast logistics</span>
+</div>
+<p class="tab-help">Use this page like a lightweight trip microsite. Start here for the essentials, then jump into the detail tabs for lodging, flights, payments, and the plan.</p>
+<div class="overview-grid">
+  <div class="overview-card">
+    <label>Trip Dates</label>
+    <strong>July 11–18, 2026</strong>
+    <p>Placencia, Belize</p>
+  </div>
+  <div class="overview-card">
+    <label>Main Stay</label>
+    <strong>Lazy Palm Suites</strong>
+    <p>Primary group base for the week</p>
+  </div>
+  <div class="overview-card">
+    <label>Travel Flow</label>
+    <strong>Fly into BZE · Drive South</strong>
+    <p>Rental cars at the airport, then head to Placencia</p>
+  </div>
+</div>
+<div class="mini-grid">
+  <div class="mini-card">
+    <label>Best tabs to check first</label>
+    <p>Flights for arrivals, Payments for balances, and Driving Directions for the airport-to-Placencia route.</p>
+  </div>
+  <div class="mini-card">
+    <label>Main rhythm</label>
+    <p>Arrival dinner, beach time, excursions, and a few anchor event days without digging through the full itinerary first.</p>
+  </div>
+</div>
+<div class="quick-links">
+  <a href="#accommodation" data-jump-tab="1">Open Accommodation</a>
+  <a href="#flight-information" data-jump-tab="5">Open Flights</a>
+  <a href="#payment-tracking" data-jump-tab="4">Open Payments</a>
+  <a href="#planned-events" data-jump-tab="6">Open Events</a>
+</div>
+</section><section aria-labelledby="tab-btn-1" class="section tab-panel" hidden="" id="tab-panel-1" role="tabpanel">
+
 <div class="section-header">
 <span class="section-icon">🌴</span>
 <h2>Accommodation</h2>
 </div>
+<p class="tab-help">Primary house first, then overflow lodging options below.</p>
 <!-- Primary: Lazy Palm Suites -->
 <p style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:500;">Primary · Lazy Palm Suites **HOUSE FULL**</p>
 <div class="accom-card" style="margin-bottom:20px;">
@@ -622,7 +737,7 @@ body {
 <p><a href="https://maps.app.goo.gl/Czd8diZx2uVcQ2JP9" style="color: var(--ocean); text-decoration: underline;" target="_blank">View on Google Maps</a></p>
 </div>
 </div>
-</section><section aria-labelledby="tab-btn-1" class="section tab-panel" hidden="" id="tab-panel-1" role="tabpanel">
+</section><section aria-labelledby="tab-btn-2" class="section tab-panel" hidden="" id="tab-panel-2" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">🚗</span>
 <h2>Car Rentals</h2>
@@ -699,7 +814,7 @@ body {
 <p>— add here —</p>
 </div>
 </div>
-</section><section aria-labelledby="tab-btn-2" class="section tab-panel" hidden="" id="tab-panel-2" role="tabpanel">
+</section><section aria-labelledby="tab-btn-3" class="section tab-panel" hidden="" id="tab-panel-3" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">🗺️</span>
 <h2>Driving Directions</h2>
@@ -746,7 +861,7 @@ body {
 </div>
 </div>
 <p class="payment-note" style="margin-top:12px;">⚠️ <strong>Avoid the Coastal Highway</strong> — despite appearing on maps as a shortcut, it is an unpaved dirt road. Crystal Auto Rental explicitly prohibits use of rental vehicles on it.</p>
-</section><section aria-labelledby="tab-btn-3" class="section tab-panel" hidden="" id="tab-panel-3" role="tabpanel">
+</section><section aria-labelledby="tab-btn-4" class="section tab-panel" hidden="" id="tab-panel-4" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">💳</span>
 <h2>Payment Tracking</h2>
@@ -837,7 +952,7 @@ body {
 </tbody>
 </table>
 <p class="payment-note">* Status options: <strong>Paid</strong> · <strong>Unpaid</strong> · <strong>TBD</strong> — update each guest row directly in this file.</p>
-</section><section aria-labelledby="tab-btn-4" class="section tab-panel" hidden="" id="tab-panel-4" role="tabpanel">
+</section><section aria-labelledby="tab-btn-5" class="section tab-panel" hidden="" id="tab-panel-5" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">✈️</span>
 <h2>Flight Information</h2>
@@ -961,11 +1076,12 @@ body {
 </tbody>
 </table>
 <p class="payment-note">* Common routes: American via DFW · United via IAH · Southwest via HOU — all into BZE (Philip S.W. Goldson Int'l)</p>
-</section><section aria-labelledby="tab-btn-5" class="section tab-panel" hidden="" id="tab-panel-5" role="tabpanel">
+</section><section aria-labelledby="tab-btn-6" class="section tab-panel" hidden="" id="tab-panel-6" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">🗓</span>
 <h2>Planned Events</h2>
 </div>
+<p class="tab-help">Use this tab for the day-by-day plan and anchor activities.</p>
 <div class="itinerary">
 <div class="day-row">
 <div class="day-marker">
@@ -1063,7 +1179,7 @@ body {
 </div>
 </div>
 </div>
-</section><section aria-labelledby="tab-btn-6" class="section tab-panel" hidden="" id="tab-panel-6" role="tabpanel">
+</section><section aria-labelledby="tab-btn-7" class="section tab-panel" hidden="" id="tab-panel-7" role="tabpanel">
 <div class="section-header">
 <span class="section-icon">📸</span>
 <h2>Photo Gallery</h2>
@@ -1140,6 +1256,7 @@ body {
 (function () {
   const tabs = Array.from(document.querySelectorAll('.tab-btn'));
   const panels = Array.from(document.querySelectorAll('.tab-panel'));
+  const jumpLinks = Array.from(document.querySelectorAll('[data-jump-tab]'));
 
   function activateTab(index, updateHash = true) {
     tabs.forEach((tab, i) => {
@@ -1172,6 +1289,14 @@ body {
         tabs[(index - 1 + tabs.length) % tabs.length].focus();
         activateTab((index - 1 + tabs.length) % tabs.length);
       }
+    });
+  });
+
+  jumpLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const idx = parseInt(link.getAttribute('data-jump-tab'), 10);
+      if (!Number.isNaN(idx)) activateTab(idx);
     });
   });
 
